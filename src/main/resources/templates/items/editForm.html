@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"
+          href="../css/style.css" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap"
+            rel="stylesheet"
+    />
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <style>
+        .field-error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{fragment/navbar :: basicNav}"></div>
+
+<div class="addItem_container">
+    <div>
+        <h2 th:text="#{page.updateItem}">상품수정</h2>
+    </div>
+
+    <form action="item.html" th:action th:object="${item}" method="post">
+        <div class="inputArea">
+            <label for="id" th:text="#{label.item.id}">상품ID</label>
+            <input type="text" id="id" th:field="*{id}" readonly />
+        </div>
+
+        <div class="inputArea">
+            <label for="itemName" th:text="#{label.item.itemName}">상품명</label>
+            <input type="text" id="itemName" th:field="*{itemName}" />
+            <div class="field-error" th:errors="*{itemName}">
+                상품명 오류
+            </div>
+        </div>
+
+        <div class="inputArea">
+            <label for="price" th:text="#{label.item.price}">상품가격</label>
+            <input type="text" id="price" th:field="*{price}" />
+            <div class="field-error" th:errors="*{price}">
+                가격 오류
+            </div>
+        </div>
+
+        <div class="inputArea">
+            <label for="quantity" th:text="#{label.item.quantity}">상품수량</label>
+            <input type="text" id="quantity" th:field="*{quantity}" />
+            <div class="field-error" th:errors="*{quantity}">
+                수량 오류
+            </div>
+        </div>
+
+        <div class="inputArea">
+            <label for="gdsDes">상품소개</label>
+            <textarea rows="5" cols="50" id="gdsDes" name="gdsDes"></textarea>
+        </div>
+        <div class="inputArea">
+            <button type="submit" class="btn_edit" th:text="#{button.save}">저장</button>
+            <button type="button" class="btn_cancel"
+            onclick="location.href='item.html'"
+            th:onclick="|location.href='@{/market/items/{itemId}(itemId=${item.id})}'|" th:text="#{button.cancel}">취소</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

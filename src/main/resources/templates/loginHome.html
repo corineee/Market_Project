@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link th:href="@{/css/style.css}"
+          href="css/style.css" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap"
+            rel="stylesheet"
+    />
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+</head>
+<body>
+<div th:replace="~{fragment/navbar :: loginNav}"></div>
+<div class="img_container">
+    <img
+            class="look_book"
+            src="../images/3662fd2c62e92723641cc2fc440675fe.jpg"
+            alt=""
+    />
+    <div class="look_text">
+        <p>TODAY</p>
+    </div>
+    <img
+            class="look_book"
+            src="../images/4eb776a45bc035c6149d91478cdd5bb0.jpg"
+            alt=""
+    />
+</div>
+<div class="look_text2">
+    <p>TOMORROW</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/style.css}"
+          href="../css/style.css" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap"
+            rel="stylesheet"
+    />
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+</head>
+<body>
+<div th:replace="~{fragment/navbar :: basicNav}"></div>
+<div class="col">
+    <button class="btn"
+            onclick="location.href='addForm.html'"
+            th:onclick="|location.href='@{/market/items/add}'|"
+            type="button">상품 등록</button>
+</div>
+
+<div class="item_table">
+    <table class="table">
+        <thead>
+        <tr>
+            <th th:text="#{label.item.id}">ID</th>
+            <th th:text="#{label.item.itemName}">상품명</th>
+            <th th:text="#{label.item.price}">가격</th>
+            <th th:text="#{label.item.quantity}">수량</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${items}">
+            <td><a href="item.html" th:href="@{/market/items/{itemId}(itemId=${item.id})}" th:text="${item.id}">회원id</a></td>
+            <td><a href="item.html" th:href="@{|/market/items/${item.id}|}" th:text="${item.itemName}">상품명</a></td>
+            <td th:text="${item.price}">10000</td>
+            <td th:text="${item.quantity}">10</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

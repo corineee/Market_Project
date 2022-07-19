@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}"
+          href="../css/style.css" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap"
+            rel="stylesheet"
+    />
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+</head>
+<body>
+<nav class="navbar" th:fragment="basicNav">
+    <div class="navbar__logo">
+        <i class="fab fa-reddit"></i>
+        <a href="">market</a>
+    </div>
+    <ul class="navbar__menu">
+        <li><a href="/">홈</a></li>
+        <li><a href="/market/items">상품</a></li>
+        <li><a href="/market/items/add">상품등록</a></li>
+    </ul>
+    <ul class="navbar__icons">
+        <li th:if="${session.loginMember == null}"><a href="/login">로그인</a></li>
+        <li th:if="${session.loginMember == null}"><a href="/members/add">회원가입</a></li>
+        <li th:if="${session.loginMember != null}"><a th:text="|${session.loginMember.name}님|">로그인 사용자 이름</a></li>
+        <form th:if="${session.loginMember != null}" th:action="@{/logout}" method="post">
+            <li><button type="submit" class="logout_btn" onclick="location.href='items.html'">로그아웃</button></li>
+        </form>
+        <li><i class="fab fa-twitter"></i></li>
+        <li><i class="fab fa-facebook"></i></li>
+    </ul>
+
+    <a href="#" class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+    </a>
+</nav>
+
+<!--login Success-->
+
+<nav class="navbar" th:fragment="loginNav">
+    <div class="navbar__logo">
+        <i class="fab fa-reddit"></i>
+        <a href="">market</a>
+    </div>
+    <ul class="navbar__menu">
+        <li><a href="/">홈</a></li>
+        <li><a href="/market/items">상품</a></li>
+        <li><a href="/market/items/add">상품등록</a></li>
+    </ul>
+    <ul class="navbar__icons">
+        <li><a th:text="|${member.name}님|">로그인 사용자 이름</a></li>
+        <form th:action="@{/logout}" method="post">
+            <li><a href="/logout">로그아웃</a></li>
+        </form>
+        <li><i class="fab fa-twitter"></i></li>
+        <li><i class="fab fa-facebook"></i></li>
+    </ul>
+
+    <a href="#" class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+    </a>
+</nav>
+</body>
+</html>
