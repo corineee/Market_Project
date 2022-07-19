@@ -1,7 +1,7 @@
 # Market_Project
 spring boot &amp; Thymeleaf 를 사용한 market 아이템 추가 및 수정 Project
 # 프로젝트 계획이유
-Thymeleaf 를 사용한 project를 만들어 본 적이 없어 project를 만들어보며 정리를 하기 위해 만들게 되었습니다.
+### Thymeleaf 를 사용한 project를 만들어 본 적이 없어 project를 만들어보며 정리를 하기 위해 만들게 되었습니다.
 간단한 상품 추가 및 수정 기능을 만들었고 회원관련 부분은 회원가입 및 로그인 기능을 구현하였습니다. Spring boot 와 Thymeleaf를 사용하여
 구현하였으며 Lombok을 사용하여 코드 간결화를 해주었습니다.
 ------------
